@@ -1,0 +1,12 @@
+{
+  "name": "correctName",
+  "model": "model",
+  "range": {
+    "from": 22,
+    "to": 45
+  },
+  "type": null,
+  "unit": 1,
+  "location": "kitchen",
+  "description": "description"
+}

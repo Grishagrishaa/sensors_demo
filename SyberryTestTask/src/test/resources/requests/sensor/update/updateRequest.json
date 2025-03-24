@@ -1,0 +1,12 @@
+{
+  "name": "sampleName",
+  "model": "ac-23",
+  "range": {
+    "from": 22,
+    "to": 45
+  },
+  "typeId": 1,
+  "unitId": 1,
+  "location": "kitchen",
+  "description": "description"
+}

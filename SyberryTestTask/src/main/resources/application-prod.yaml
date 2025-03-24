@@ -1,0 +1,33 @@
+#PORT
+server:
+  port: 8081
+
+app:
+  keycloak:
+    url: http://keycloak:8080/
+    realm: kc_demo-realm
+
+#check acces token
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://keycloak:8080/auth/realms/kc_demo-realm/protocol/openid-connect/certs
+
+  datasource:
+    url: jdbc:postgresql://db:5432/kc_employees
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate.ddl-auto: validate
+
+  liquibase:
+    enabled: true
+    default-schema: public
+    change-log: db/changelog/db.changelog-master.yaml
+

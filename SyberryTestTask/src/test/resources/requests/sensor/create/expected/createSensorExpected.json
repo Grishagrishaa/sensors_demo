@@ -1,0 +1,12 @@
+{
+  "name": "sampleName",
+  "model": "ac-23",
+  "range": {
+    "from": 22,
+    "to": 45
+  },
+  "type": "Pressure",
+  "unit": "Bar",
+  "location": "kitchen",
+  "description": "description"
+}

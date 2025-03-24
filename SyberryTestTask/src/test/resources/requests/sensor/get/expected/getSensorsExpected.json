@@ -1,0 +1,41 @@
+[
+  {
+    "id" : "4afd37b6-db76-49c4-85ee-94c52e945389",
+    "name": "Thermometer A1",
+    "model": "T-100",
+    "range": {
+      "from": 0,
+      "to": 100
+    },
+    "type": "Pressure",
+    "unit": "Bar",
+    "location": "Living Room",
+    "description": "Measures temperature"
+  },
+  {
+    "id" : "78c04c21-5869-4006-9669-a169beabe06e",
+    "name": "Hygrometer B2",
+    "model": "H-200",
+    "range": {
+      "from": 10,
+      "to": 90
+    },
+    "type": "Voltage",
+    "unit": "Voltage",
+    "location": "Basement",
+    "description": "Measures humidity"
+  },
+  {
+    "id" : "ffd01476-605b-4838-a538-4236c6966fb3",
+    "name": "Barometer C3",
+    "model": "P-300",
+    "range": {
+      "from": 900,
+      "to": 1100
+    },
+    "type": "Temperature",
+    "unit": "Celsius",
+    "location": "Laboratory",
+    "description": "Measures air pressure"
+  }
+]

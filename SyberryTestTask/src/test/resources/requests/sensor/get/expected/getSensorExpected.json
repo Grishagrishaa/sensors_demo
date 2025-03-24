@@ -1,0 +1,13 @@
+{
+  "id" : "4afd37b6-db76-49c4-85ee-94c52e945389",
+  "name": "Thermometer A1",
+  "model": "T-100",
+  "range": {
+    "from": 0,
+    "to": 100
+  },
+  "type": "Pressure",
+  "unit": "Bar",
+  "location": "Living Room",
+  "description": "Measures temperature"
+}

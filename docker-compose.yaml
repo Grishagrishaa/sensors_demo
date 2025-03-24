@@ -1,0 +1,56 @@
+version: '3.5'
+
+services:
+  postgres_kc:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    networks:
+      - cheburnet
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres_kc
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_SCHEMA: public
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: password
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    volumes:
+      - ./keycloak-realm:/opt/keycloak/data/import
+    command: [ "start-dev", "--import-realm" ]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_kc
+    networks:
+      - cheburnet
+
+  kc_demo:
+    build: ./SyberryTestTask
+    ports:
+      - "80:8081"
+    depends_on:
+      - db
+      - keycloak
+    restart: always
+    networks:
+      - cheburnet
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: kc_employees
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - cheburnet
+networks:
+  cheburnet:
+    name: cheburnet
