@@ -31,7 +31,7 @@ services:
       - cheburnet
 
   kc_demo:
-    build: ./SyberryTestTask
+    build: ./SensorsTestTask
     ports:
       - "80:8081"
     depends_on:
