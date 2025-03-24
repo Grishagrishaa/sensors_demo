@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,6 @@ public interface SensorApi {
         @ApiResponse(responseCode = "403", description = "Запрещен доступ"),
         @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
     })
-    @PostMapping
     ResponseEntity<SensorDto> create(SensorCreateDto createDto);
 
     @Operation(summary = "Получение датчика")
@@ -48,7 +48,7 @@ public interface SensorApi {
         @ApiResponse(responseCode = "403", description = "Запрещен доступ"),
         @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
     })
-    ResponseEntity<List<SensorDto>> getAll(SearchFilterDto filterDto, @PageableDefault Pageable pageable);
+    ResponseEntity<List<SensorDto>> getAll(@ParameterObject SearchFilterDto filterDto, @ParameterObject @PageableDefault Pageable pageable);
 
     @Operation(summary = "Обновление датчика")
     @ApiResponses(value = {

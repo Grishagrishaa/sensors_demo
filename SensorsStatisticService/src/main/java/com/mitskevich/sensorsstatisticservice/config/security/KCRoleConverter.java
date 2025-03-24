@@ -1,4 +1,4 @@
-package com.mitskevich.sensorstesttask.config.security;
+package com.mitskevich.sensorsstatisticservice.config.security;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,19 +22,12 @@ public class KCRoleConverter implements Converter<Jwt, Collection<GrantedAuthori
     @Override
     public Collection<GrantedAuthority> convert(Jwt jwt) {
         Map<String, Object> realmAccess = (Map<String, Object>) jwt.getClaims().get("realm_access");
-        List<String> realmRoles = (List<String>) realmAccess.get("roles");
-
-        Map<String, Object> resourceAccess = (Map<String, Object>) jwt.getClaims().get("resource_access");
-        Map<String, Object> statisticClient = (Map<String, Object>) resourceAccess.get("sensor-statistics-client");
-        List<String> statisticClientRoles = (List<String>) statisticClient.get("roles");
-
-        realmRoles.addAll(statisticClientRoles);
 
         if(realmAccess == null || realmAccess.isEmpty()){
             return Collections.emptyList();
         }
 
-        Collection<GrantedAuthority> roles = realmRoles.stream()
+        Collection<GrantedAuthority> roles = ((List<String>) realmAccess.get("roles")).stream()
                 .map(roleName -> "ROLE_" + roleName)
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());

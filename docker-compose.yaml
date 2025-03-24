@@ -40,6 +40,17 @@ services:
     restart: always
     networks:
       - cheburnet
+
+  stats_demo:
+    build: ./SensorsStatisticService
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db_statistics
+      - keycloak
+    restart: always
+    networks:
+      - cheburnet
   db:
     image: postgres:latest
     restart: always
@@ -49,6 +60,17 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5433:5432"
+    networks:
+      - cheburnet
+  db_statistics:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: sensor_statistics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
     networks:
       - cheburnet
 networks:

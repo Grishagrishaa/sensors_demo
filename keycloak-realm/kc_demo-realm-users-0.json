@@ -1,0 +1,95 @@
+{
+  "realm" : "kc_demo-realm",
+  "users" : [ {
+    "id" : "7a4abeff-d2fe-43ab-a730-61359647a96e",
+    "username" : "admin",
+    "firstName" : "admin",
+    "lastName" : "admin",
+    "email" : "admin@admin.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1742759130366,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "b9d5a6a5-4df7-4e6a-bb33-f3ab5bfaf883",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1742759144692,
+      "secretData" : "{\"value\":\"irXY5WdbiQov2UchVqpbTZOnMyhW1U2gvlXGld/9//U=\",\"salt\":\"hc+nyKYUZuFTOcHsVF54Jw==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-kc_demo-realm", "user", "admin" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "87af1fa6-426f-40ea-add1-d6a207d59bba",
+    "username" : "service-account-kc_demo-client",
+    "emailVerified" : false,
+    "createdTimestamp" : 1742747641350,
+    "enabled" : true,
+    "totp" : false,
+    "serviceAccountClientId" : "kc_demo-client",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-kc_demo-realm" ],
+    "clientRoles" : {
+      "kc_demo-client" : [ "uma_protection" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "d753a273-06dd-4f22-8083-7362d987ba9e",
+    "username" : "service-account-realm-management",
+    "emailVerified" : false,
+    "createdTimestamp" : 1742758526891,
+    "enabled" : true,
+    "totp" : false,
+    "serviceAccountClientId" : "realm-management",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-kc_demo-realm" ],
+    "clientRoles" : {
+      "realm-management" : [ "uma_protection" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "0e58937b-296a-4e77-a596-52ba1d9c4656",
+    "username" : "service-account-sensor-statistics-client",
+    "emailVerified" : false,
+    "createdTimestamp" : 1742821904662,
+    "enabled" : true,
+    "totp" : false,
+    "serviceAccountClientId" : "sensor-statistics-client",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-kc_demo-realm" ],
+    "clientRoles" : {
+      "sensor-statistics-client" : [ "admin" ],
+      "kc_demo-client" : [ "user", "admin" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "c2c8ae9e-e1a8-431f-9e94-bada159c53a7",
+    "username" : "user",
+    "firstName" : "user",
+    "lastName" : "user",
+    "email" : "user@user.com",
+    "emailVerified" : true,
+    "createdTimestamp" : 1742759009734,
+    "enabled" : true,
+    "totp" : false,
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-kc_demo-realm", "user" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

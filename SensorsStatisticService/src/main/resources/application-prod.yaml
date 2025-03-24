@@ -14,9 +14,19 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://keycloak:8080/realms/kc_demo-realm/protocol/openid-connect/certs
+      client:
+        registration:
+          sensors-client:
+            client-id: sensor-statistics-client
+            client-secret: x1vxdY2FmALgtGTYMdQz1YM6366r5LhA
+            authorization-grant-type: client_credentials
+            provider: keycloak
+        provider:
+          keycloak:
+            token-uri:  http://keycloak:8080/realms/${app.keycloak.realm}/protocol/openid-connect/token
 
   datasource:
-    url: jdbc:postgresql://db:5432/kc_employees
+    url: jdbc:postgresql://db_statistics:5432/sensor_statistics
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

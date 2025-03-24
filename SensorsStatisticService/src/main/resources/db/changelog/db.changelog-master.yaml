@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: 001_create_sensors_statistic_report.sql
+      relativeToChangelogFile: true

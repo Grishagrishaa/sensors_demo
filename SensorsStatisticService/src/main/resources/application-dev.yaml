@@ -1,0 +1,45 @@
+app:
+  sensors:
+    url: http://localhost:80
+  keycloak:
+    url: http://localhost:8080/
+    realm: kc_demo-realm
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: SensorsStatisticService
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${app.keycloak.url}/realms/kc_demo-realm/protocol/openid-connect/certs
+      client:
+        registration:
+          sensors-client:
+            client-id: sensor-statistics-client
+            client-secret: x1vxdY2FmALgtGTYMdQz1YM6366r5LhA
+            authorization-grant-type: client_credentials
+            provider: keycloak
+        provider:
+          keycloak:
+            token-uri: ${app.keycloak.url}/realms/${app.keycloak.realm}/protocol/openid-connect/token
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sensor_statistics
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    default-schema: public
+    change-log: db/changelog/db.changelog-master.yaml
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public interface SensorTypeApi {
         @ApiResponse(responseCode = "403", description = "Запрещен доступ"),
         @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
     })
-    ResponseEntity<List<SensorTypeDto>> getAll(@PageableDefault Pageable pageable);
+    ResponseEntity<List<SensorTypeDto>> getAll(@ParameterObject @PageableDefault Pageable pageable);
 
 
     @Operation(summary = "Удаление записи справочника типа сенсора")
